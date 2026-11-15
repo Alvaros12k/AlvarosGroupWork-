@@ -1,4 +1,4 @@
-package com.example.tenantsys
+package com.example.tenantsys.ui.auth
 
 import android.content.Intent
 import android.os.Bundle

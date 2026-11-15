@@ -13,7 +13,7 @@
         android:theme="@style/Theme.TenantSys">
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.auth.LoginActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.TenantSys"
@@ -26,13 +26,13 @@
         </activity>
 
         <activity
-            android:name=".RegisterActivity"
+            android:name=".ui.auth.RegisterActivity"
             android:exported="false"
             android:theme="@style/Theme.TenantSys"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="false"
             android:theme="@style/Theme.TenantSys"
             android:windowSoftInputMode="adjustResize" />

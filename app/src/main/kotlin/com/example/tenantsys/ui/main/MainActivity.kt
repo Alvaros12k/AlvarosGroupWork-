@@ -1,4 +1,4 @@
-package com.example.tenantsys
+package com.example.tenantsys.ui.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,8 +14,10 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.tenantsys.R
 import com.example.tenantsys.databinding.ActivityMainBinding
 import com.example.tenantsys.databinding.NavHeaderBinding
+import com.example.tenantsys.ui.auth.LoginActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -76,7 +78,6 @@ class MainActivity : AppCompatActivity() {
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 
-    // ── LIFECYCLE METHODS ─────────────────────────────────────────
     override fun onStart() {
         super.onStart()
         Log.d("TENANT_LIFECYCLE", "MainActivity: onStart")

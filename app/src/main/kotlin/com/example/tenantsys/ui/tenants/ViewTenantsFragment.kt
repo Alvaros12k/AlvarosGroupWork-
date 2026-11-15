@@ -1,4 +1,4 @@
-package com.example.tenantsys
+package com.example.tenantsys.ui.tenants
 
 import android.content.Intent
 import android.net.Uri
@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.example.tenantsys.databinding.FragmentViewTenantsBinding
+import com.example.tenantsys.ui.viewmodel.TenantViewModel
 
 class ViewTenantsFragment : Fragment() {
 
@@ -16,6 +18,7 @@ class ViewTenantsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val args: ViewTenantsFragmentArgs by navArgs()
+    private val viewModel: TenantViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,12 +46,9 @@ class ViewTenantsFragment : Fragment() {
             }
         }
 
-        val tenants = TenantRepository.tenants
-
-        if (tenants.isEmpty()) {
-            binding.allTenantsTextView.text = "No tenants yet. Add one from the Dashboard."
-        } else {
-            binding.allTenantsTextView.text = tenants.joinToString("\n\n") { it.summary() }
+        // OBSERVER: updates automatically when Room data changes
+        viewModel.allTenantsText.observe(viewLifecycleOwner) { text ->
+            binding.allTenantsTextView.text = text
         }
     }
 
